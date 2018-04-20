@@ -1,5 +1,5 @@
 import pytest
-from selenium import webdriver
+import logging
 
 
 @pytest.fixture
@@ -8,15 +8,7 @@ def pytest_runtest_setup():
 
 
 @pytest.fixture
-def invoke_driver_instance(request):
-    driver = None
-    if request.param == "chrome":
-        driver = webdriver.Chrome()
-    elif request.param == "firefox":
-        driver = webdriver.Firefox()
-    elif request.param == "ie":
-        driver = webdriver.Ie()
-    yield driver
-    print("Trearing down function")
-    driver.close()
-    driver.quit()
+def test_logging():
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
+    yield logger
