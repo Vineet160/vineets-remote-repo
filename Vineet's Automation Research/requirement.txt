@@ -1,0 +1,5 @@
+selenium
+xlrd
+PyPDF2
+pytest
+configparser
